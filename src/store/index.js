@@ -6,7 +6,54 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     races: [],
-    selectId:""
+    selectId: "",
+    products: [{
+        type: 1,
+        name: "Computador",
+        price: 750
+      },
+      {
+        type: 1,
+        name: "I-Phone",
+        price: 1000
+      },
+      {
+        type: 1,
+        name: "SmartWatch",
+        price: 250
+      },
+      {
+        type: 2,
+        name: "t-shirt",
+        price: 10
+      },
+      {
+        type: 2,
+        name: "Calças",
+        price: 20
+      },
+      {
+        type: 2,
+        name: "Casaco",
+        price: 50
+      },
+      {
+        type: 3,
+        name: "Guitarra",
+        price: 200
+      },
+      {
+        type: 3,
+        name: "Piano",
+        price: 500
+      },
+      {
+        type: 3,
+        name: "Violino",
+        price: 1000
+      },
+    ],
+    orders: []
   },
   getters: {
     lastId(state) {
@@ -17,6 +64,10 @@ export default new Vuex.Store({
     idSelect(state) {
       return state.selectId;
     },
+    lastIdOrders(state) {
+      return state.orders.length ?
+        state.orders[state.orders.length - 1].id : 0;
+    }
   },
   mutations: {
     ADD_RACE(state, payload) {
@@ -42,6 +93,16 @@ export default new Vuex.Store({
       }
       localStorage.setItem("races", JSON.stringify(this.state.races))
     },
+    ADD_ORDER(state, payload) {
+      state.orders.push({
+        id: payload.idOrder,
+        name: payload.nameUser,
+        orderName: payload.nameOrder,
+        products: payload.chkProducts,
+        total: payload.totalPrice,
+      })
+      localStorage.setItem("orders",JSON.stringify(this.state.orders))
+    }
 
   },
   actions: {},

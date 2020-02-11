@@ -7,12 +7,27 @@
     <br />
     <br />
     <div class="container">
-      <button class="col-sm-4">
-        <router-link to="add">Adicionar</router-link>
-      </button>
-      <button id="registerBtn" class="col-sm-4 float-right">
-        <router-link to="list">Relatório</router-link>
-      </button>
+      <div class="row">
+        <span class="col-sm-3"></span>
+        <router-link to="add" class="col-sm-3">
+          <button>Adicionar</button>
+        </router-link>
+        <router-link to="list" class="col-sm-3">
+          <button id="registerBtn" class="float-right">Relatório</button>
+        </router-link>
+      </div>
+    </div>
+    <br />
+    <div class="container">
+      <div class="row">
+        <span class="col-sm-3"></span>
+        <router-link to="encomenda" class="col-sm-3">
+          <button>Fazer Encomenda</button>
+        </router-link>
+         <router-link to="orders" class="col-sm-3" >
+          <button class="float-right">Ver Encomendas</button>
+        </router-link>
+      </div>
     </div>
   </div>
 </template>
@@ -22,7 +37,7 @@ h1 {
 }
 img {
   height: 200px;
-  padding-left: 27.5%;
+  padding-left: 32.5%;
 }
 button {
   background-color: #4caf50; /* Green */
